@@ -1,2 +1,2 @@
 # OpenCV_Custom_EFlesh
-Integration of openCV hand modules control with Eflesh custom sensors.
+Integration of Open source OpenCV image recognition modules with Eflesh custom sensors aimed to robotics.
