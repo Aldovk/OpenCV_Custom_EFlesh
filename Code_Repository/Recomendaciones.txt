@@ -1,0 +1,28 @@
+En el caso de que se encuentre problemas con las librerias llamadas en los programas 
+para la generacion de sensores:
+> regular.ipynb
+> cut-cell.ipynb
+> create_pouch.py
+
+descargar las librerias necesarias en el env de eflesh, con conda activado:
+    (con terminal en el directorio de la carpeta de eFlesh)
+----- cut-cell.ipynb ------
+>> pip install libigl
+    (libreria para el modulo igl)
+>> pip install meshio
+    (libreria para el modulo meshio)
+>> pip install pandas
+    (modulo de libreria para numpy)
+----- create pouch -----
+>> pip install bpy==3.6.0 --extra-index-url https://download.blender.org/pypi/
+    (este modulo bpy permite )
+
+OJO!! Al momento de ejecutar con blender, create pouch asegurarse de usar el .obj waveform 
+que tenga en el nombre modulo-de-young_FALSE ya que este es el que cuenta con la microestructura.
+
+OJO! Es importante utilizar el parametro nu o v (Poisson ratio) elasticidad para el script
+de cut-cell.ipynb para el material en el cual se utilizará. En este caso el TPU 95A/85A
+nu es aproximadamente 0.45 - 0.49. Agregar en la celda de la funcion de young
+    nu = 0.41 #el modelo no está implementado para valores >0.45
+
+--Aldo Gabriel Guerra

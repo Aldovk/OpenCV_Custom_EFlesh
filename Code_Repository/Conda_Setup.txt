@@ -1,0 +1,47 @@
+Instalar conda en sistema Unix distro Ubuntu:
+>> sudo apt update && sudo apt upgrade
+>> wget https://repo.anaconda.com/archive/Anaconda3-2025.12-1-Linux-x86_64.sh
+>> bash Anaconda3-2025.12-1-Linux-x86_64.sh -b
+
+Una vez instalado anaconda:
+>> conda init
+>> source ~/.bashrc 
+    (esto recarga la terminal, si la instalacion fue exitosa entonces deberia aparecer
+    "(base) amr@amr-laptop: " como inicio de la terminal.)
+
+'Si conda no inicializa':
+>> conda --version 
+    (verificar si la terminal devuelve una version de conda)
+>> nano ~/.bashrc
+    (revisar en el archivo de inicio del bash si existe una variable para conda,
+    si no hay ninguna al final del archivo continuar con los pasos siguientes.)
+>> ls ~/anaconda3/bin/conda
+    (revisar si se encuentra este directorio instalado correctamente)
+>> echo 'export PATH="$HOME/anaconda3/bin:$PATH"' >> ~/.bashrc
+    (este comando permite exportar el camino al directorio /bin/ de conda para ser utilizado 
+    como una variable $PATH, y por ende ser inicializado.)
+>> nano ~/.bashrc
+    (revisar en el archivo de inicio del bash en sus ultimas lineas que se hayan
+    creado unas variables de tipo $PATH para el /bin/ de conda)
+>> source ~/.bashrc
+    (recargar para que la terminal en startup contenga el ambiente virtual de conda
+    "(base) amr@amr-laptop: ")
+
+    OJO! Si conda aun no inicializa el env (base) entonces utilizar:
+    >> conda init
+    Si despues de inicializarlo aun no se tiene (base) en la terminal:
+    >>  conda config --set auto_activate_base true
+        (esto configura a que conda tenga permiso de activar su ambiente virtual 
+        predeterminado (base) en cada inicializacion de terminal.)
+
+Una vez inicializado:
+>> conda env create -f env.yml
+
+Esperar que conluya el setup:
+>> conda activate eflesh
+
+Si se quiere dejar de utilizar conda para ambientes virtuales en algun otro proyecto
+simplemente utilizar: 
+>> conda deactivate
+
+--Aldo Gabriel Guerra
